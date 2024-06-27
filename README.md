@@ -22,3 +22,9 @@ If you are new to any place and need laundry services, this application is incre
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/laundry-management-system.git
+
+   ## 📷 Screenshots
+![Home Screen](./images/home-page.png)
+![Order Management](./images/item-page.png)
+![User Screen](./images/user-page.png)
+![Vendor Screen](./images/vendor-page.png)
