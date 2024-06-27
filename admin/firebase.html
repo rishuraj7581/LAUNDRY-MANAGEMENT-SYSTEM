@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admin Dashboard | Quick Clean</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="shortcut icon" href="../../creaseart_website-master/img/Logo4.png" type="image/x-icon">
+  <!-- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+  <!-- Firebase Config -->
+
+  <script src="particles.js"></script> 
+
+
+  <script>
+
+    // Initialize Firebase
+   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA7cULxf6R4jmJfACFIdweioyIS1M8y6jw",
+  authDomain: "quick-clean-d6697.firebaseapp.com",
+  databaseURL: "https://quick-clean-d6697-default-rtdb.firebaseio.com",
+  projectId: "quick-clean-d6697",
+  storageBucket: "quick-clean-d6697.appspot.com",
+  messagingSenderId: "782590391296",
+  appId: "1:782590391296:web:78df13fe3355ae53a954e5",
+  measurementId: "G-JNXG2WPH10"
+};
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Fetch data from Firebase and update table
+    var database = firebase.database();
+    database.ref('Services').once('value', function(snapshot){
+      if(snapshot.exists()){
+        var content = '';
+        snapshot.forEach(function(data){
+          var val = data.val();
+          content += '<tr>';
+          content += '<td>' + val.firstName + '</td>';
+          content += '<td>' + val.lastName + '</td>';
+          content += '<td>' + val.email + '</td>';
+          content += '<td>' + val.servicesDate + '</td>';
+          content += '<td>' + val.servicesTime + '</td>';
+          content += '<td>' + val.gender + '</td>';
+          content += '<td>' + val.address + '</td>';
+          content += '<td>' + val.state + '</td>';
+          content += '<td>' + val.city + '</td>';
+          content += '<td>' + val.paymentMethod + '</td>';
+          content += '<td>' + val.summerClothes + '</td>';
+          content += '<td>' + val.winterClothes + '</td>';
+          content += '<td>' + val.normalClothes + '</td>';
+          content += '<td>' + val.additionalServices + '</td>';
+          content += '<td>' + val.totalAmount + '</td>';
+          content += '<td><label class="switch">';
+          content += '<input type="checkbox" id="completed' + data.key + '" onchange="toggleCompletion(\'' + data.key + '\')" ' + (val.completed ? 'checked' : '') + '>';
+          content += '<span class="slider round"></span></label></td>'; // Toggle Button
+          content += '</tr>';
+        });
+        $('#table1 tbody').append(content);
+        updateOrdersLeft(); // Update orders left initially
+      }
+    });
+
+    // Function to toggle completion status
+    function toggleCompletion(key) {
+      var appointmentRef = firebase.database().ref('Services/' + key);
+      appointmentRef.once('value', function(snapshot) {
+        var completed = snapshot.val().completed;
+        appointmentRef.update({ completed: !completed });
+        updateOrdersLeft(); // Update orders left after toggle
+      });
+    }
+
+    // Function to update the number of orders left
+    function updateOrdersLeft() {
+      var ordersLeft = $('input[type="checkbox"]:not(:checked)').length;
+      $('#ordersLeft').text('Orders Left: ' + ordersLeft);
+    }
+
+    // Fetch data from Firebase for charts
+    database.ref('Services').once('value', function(snapshot){
+      if(snapshot.exists()){
+        var upperClothesCount = {};
+        var genderCounts = {};
+        var stateCounts = {};
+        var paymentMethodCounts = {}; // Added
+
+        // content += '<td>' + val.summerClothes + '</td>';
+        //   content += '<td>' + val.winterClothes + '</td>';
+        //   content += '<td>' + val.normalClothes + '</td>';
+
+//         var upperClothes = val.upperClothes;
+// var lowerClothes = val.lowerClothes;
+// var bedsheets = val.bedsheets;
+// var paymentMethod = val.paymentMethod; // Added
+// if (upperClothesCount[upperClothes]) {
+//   upperClothesCount[upperClothes]++;
+// } else {
+//   upperClothesCount[upperClothes] = 1;
+// }
+
+
+// Initialize upper clothes, lower clothes, and bedsheets counts
+// Update additional services count
+// var additionalServicesCounts = {};
+// snapshot.forEach(function(data){
+//   var val = data.val();
+//   var additionalServices = val.additionalServices;
+//   if (additionalServicesCounts[additionalServices]) {
+//     additionalServicesCounts[additionalServices]++;
+//   } else {
+//     additionalServicesCounts[additionalServices] = 1;
+//   }
+// });
+
+        snapshot.forEach(function(data){
+          var val = data.val();
+//           var upperClothes = val.summerClothes;
+// var lowerClothes = val.winterClothes;
+// var bedsheets = val.normalClothes;
+var paymentMethod = val.paymentMethod; // Added
+// if (upperClothesCount[upperClothes]) {
+//   upperClothesCount[upperClothes]++;
+// } else {
+//   upperClothesCount[upperClothes] = 1;
+// }
+          var gender = val.gender;
+          if (genderCounts[gender]) {
+            genderCounts[gender]++;
+          } else {
+            genderCounts[gender] = 1;
+          }
+          var state = val.state;
+          if (stateCounts[state]) {
+            stateCounts[state]++;
+          } else {
+            stateCounts[state] = 1;
+          }
+          // Update payment method count
+          if (paymentMethodCounts[paymentMethod]) {
+            paymentMethodCounts[paymentMethod]++;
+          } else {
+            paymentMethodCounts[paymentMethod] = 1;
+          }
+        });
+
+      
+
+        // Create bar chart for upper clothes, lower clothes, and bedsheets
+// Create additional services comparison chart
+// var additionalServicesCtx = document.getElementById('additionalServicesChart').getContext('2d');
+// var additionalServicesChart = new Chart(additionalServicesCtx, {
+//   type: 'bar',
+//   data: {
+//     labels: Object.keys(additionalServicesCounts),
+//     datasets: [{
+//       label: 'Number of Appointments by Additional Services',
+//       data: Object.values(additionalServicesCounts),
+//       backgroundColor: 'rgba(255, 99, 132, 0.2)', // Red color for bars
+//       borderColor: 'rgba(255, 99, 132, 1)',
+//       borderWidth: 1
+//     }]
+//   },
+//   options: {
+//     scales: {
+//       yAxes: [{
+//         ticks: {
+//           beginAtZero: true
+//         }
+//       }]
+//     }
+//   }
+// });
+
+        // Create gender chart
+        var genderCtx = document.getElementById('genderChart').getContext('2d');
+        var genderChart = new Chart(genderCtx, {
+          type: 'pie',
+          data: {
+            labels: Object.keys(genderCounts),
+            datasets: [{
+              label: 'Number of Appointments by Gender',
+              data: Object.values(genderCounts),
+              backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+              borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+
+        // Create state chart
+        var stateCtx = document.getElementById('stateChart').getContext('2d');
+        var stateChart = new Chart(stateCtx, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(stateCounts),
+            datasets: [{
+              label: 'Number of Appointments by State',
+              data: Object.values(stateCounts),
+              backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+              borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+
+        // Create payment method comparison chart
+        var paymentMethodCtx = document.getElementById('paymentMethodChart').getContext('2d');
+        var paymentMethodChart = new Chart(paymentMethodCtx, {
+          type: 'bar',
+          data: {
+            labels: Object.keys(paymentMethodCounts),
+            datasets: [{
+              label: 'Number of Appointments by Payment Method',
+              data: Object.values(paymentMethodCounts),
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      }
+    });
+
+  </script>
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff; /* White background */
+      color: #000; /* Black text */
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
+      position: relative; /* Add position relative */
+      text-align: center; /* Center align content */
+      top: 5%; /* Move the container down by 50% of the viewport height */
+  right: 5%;
+    }
+    
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #000; /* Black heading */
+      margin-bottom: 20px;
+      text-align: center; /* Center align heading */
+    }
+
+    .table {
+      margin: 0 auto; /* Center align table */
+    }
+
+    .table th {
+      color: #fff; /* White text for table headers */
+      background-color: #9a221e; /* Red header background */
+      font-weight: bold;
+      text-align: center; /* Center align header text */
+    }
+
+    .table td {
+      color: #000; /* Black text for table data */
+      background-color: #fff; /* White cell background */
+      text-align: center; /* Center align cell text */
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin: auto; /* Center align toggle button */
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff; /* White background */
+      border: 1px solid #ccc; /* Gray border */
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: #ccc; /* Gray circle */
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #b23632; /* Red background when toggled on */
+      border-color: #9e2925; /* Red border when toggled on */
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+      background-color: #fff; /* White circle when toggled on */
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: auto;
+    }
+
+    /* Background around the charts */
+    .chart-container {
+      background-color: hsl(0, 11%, 98%); /* Dark gray background */
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* Orders left heading */
+    #ordersLeft {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    /* Logout button */
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #a83632; /* Red background */
+      color: #fff; /* White text */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background-color: #c9302c; /* Dark red background on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo -->
+  <!-- C:\Users\VICTUS\Downloads\creaseart_website-master\creaseart_website-master\img\Logo4.png -->
+  <!-- <img src="creaseart_website-master/img/Logo4.png"   alt="logo" class="logo"> -->
+  <!-- <img src="path_to_your_logo" alt="Quick Clean Logo" class="logo"> -->
+
+  <div class="logo-box">
+
+    <a href="#"><img src="../../creaseart_website-master/css/img/Logo4.png"   alt="logo" class="logo"></a>
+
+</div>
+  
+  <!-- Logout button -->
+  <button class="logout-button" onclick="window.location.href='../../creaseart_website-master/Login.html'">Logout</button>
+
+  <div class="container" >
+    <h1>Service Appointments</h1>
+    <p id="ordersLeft"></p> <br>
+    <table class="table table-striped" id="table1">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Service Date</th>
+          <th>Service Time</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>State</th>
+          <th>City</th>
+          <th>Payment Method</th>
+          <th>Upper Clothes</th> <!-- Changed column name -->
+          <th>Lower Clothes</th> <!-- Changed column name -->
+          <th>Bedsheets</th> <!-- Changed column name -->
+          <th>Additional Services</th>
+          <th>Total Amount</th>
+          <th>Completed</th> <!-- Added Completed Column -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be populated here -->
+      </tbody>
+    </table>
+
+    <!-- Chart.js Canvases -->
+    <div class="chart-container">
+      <canvas id="clothesChart" width="400" height="200"></canvas> <!-- Added comparison chart -->
+    </div>
+    <div class="chart-container">
+      <canvas id="genderChart" width="400" height="200"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="stateChart" width="400" height="200"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="paymentMethodChart" width="400" height="200"></canvas> <!-- Added payment method comparison chart -->
+    </div>
+  </div>
+</body>
+</html>

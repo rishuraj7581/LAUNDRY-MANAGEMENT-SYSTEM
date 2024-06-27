@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+<!-- 
+     <script src="particles.js"></script> -->
+    <!--For bubble particles -->
+<link rel="shortcut icon" href="img/Logo4.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <style>
+            .btn-search {
+        padding: 10px 20px;
+        font-size: 23px;
+        background-color: #B52421;;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-search:hover {
+        background-color: darkred;
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="particles-js">
+
+        <!-- Navigation header starts-->
+        <!-- style="background-image:url(img/image.png);" -->
+        <header class="header" >
+
+            <div class="logo-box">
+
+                <a href="index.html"><img src="img/Logo4.png"   alt="logo" class="logo"></a>
+
+            </div>
+
+            <!-- Menu Starts-->
+            <!-- <div id="myNav" class="nav-box">
+               donate.html -->
+                <!-- <a href="" class="btn btn-white" onclick="donate.html">Donate </a>
+                <a href="#login" onclick="openLogform()">Login</a>
+                <a href="#signup" class="btn btn-white" onclick="openSignform()">Sign Up</a>
+
+            </div> -->
+
+            <!-- Login Form Starts -->
+            <div id="login" class="overlay">
+
+                <a href="javascript:void(0)" class="closebtn" onclick="closeLogform()">&times;</a>
+
+                <div class="overlay-content">
+
+                    <h4>Login</h4>
+
+                    <div class="login-content">
+                        <form action="" class="form">
+
+                            <div class="input-div one">
+                                <div class="div">
+                                    <h5>Phone No.*</h5>
+                                    <input type="tel" class="input" autocomplete="tel" name="phone"
+                                        pattern="{+91}-[0-9]{5}-[0-9]{5}" min="10" max="13" required>
+                                </div>
+                            </div>
+
+                            <input type="submit" class="btn" value="Log In">
+                            <p>or <span><a href="#signup" onclick="openSignform()">create an account</a></span></p>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Login Forms ends -->
+
+            <!-- Sign Up form starts -->
+            <div id="signup" class="overlay">
+
+                <a href="javascript:void(0)" class="closebtn" onclick="closeSignform()">&times;</a>
+
+                <div class="overlay-content">
+
+                    <h4>Sign Up</h4>
+
+                    <div class="login-content">
+                        <form action="" class="form">
+
+                            <div class="input-div one">
+                                <div class="div">
+                                    <h5>Phone No.*</h5>
+                                    <input type="tel" class="input" autocomplete="tel" name="phone"
+                                        pattern="{+91}-[0-9]{5}-[0-9]{5}" min="10" max="13" required>
+                                </div>
+                            </div>
+
+                            <div class="input-div one">
+                                <div class="div">
+                                    <h5>Name*</h5>
+                                    <input type="text" class="input" autocomplete="name" required>
+                                </div>
+                            </div>
+
+                            <div class="input-div one">
+                                <div class="div">
+                                    <h5>Email*</h5>
+                                    <input type="email" class="input" autocomplete="email" required>
+                                </div>
+                            </div>
+
+                            <div class="input-div pass">
+                                <div class="div">
+                                    <h5>Password*</h5>
+                                    <input type="password" class="input signUppassword-input" required>
+                                </div>
+                            </div>
+
+                            <div class="input-div confirm_pass">
+                                <div class="div">
+                                    <h5>Confirm Password*</h5>
+                                    <input type="password" class="input confirm_password-input" required>
+                                </div>
+                            </div>
+
+                            <p class="error-message"></p>
+
+                            <input type="submit" class="btn" value="Sign Up">
+                            <p>or <span><a href="#login" onclick="openLogform()">login to your account</a></span></p>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Sign Up form ends -->
+            <!-- Menu ends -->
+            <!-- Navigation header ends-->
+
+            <div class="header_content">
+
+                <div class="text-box">
+
+                    <h1 class="heading-primary">
+
+                        <span class="heading-primary-main">Quick-<span class="art">Clean</span></span>
+                        <span class="heading-primary-sub">Where Clothes Feel Homely</span>
+
+                    </h1>
+                               
+                    <div id="myNav" class="nav-box">
+                        <!-- donate.html -->
+                        <!-- <a href="" class="btn btn-white" onclick="donate.html">Donate </a> -->
+                        <!-- <a href="#login" onclick="openLogform()">Login User</a>
+                        <a href="#login" onclick="openLogform()">Login For Washer-Men</a> -->
+                        <!-- <a href="#signup" class="btn btn-white" onclick="openSignform()">Sign Up</a> -->
+        
+                    </div>
+                    
+                            <span>
+
+                                <button type="submit" class="btn-search"
+                                     onclick="window.open('customerlogin/index.html' ,'_blank');" >User-Login</button>
+                                     <!-- C:\Users\VICTUS\Downloads\creaseart_website-master\creaseart_website-master\customerlogin\index.html -->
+                                     <!-- C:\Users\VICTUS\Downloads\creaseart_website-master\creaseart_website-master\adminlogin\index.html -->
+                            </span>
+                            <span>
+
+                                <button type="submit" class="btn-search"
+                                    onclick="window.open('adminlogin/index.html','_blank');">Vendor-Login</button>
+
+                            </span>
+                        <!-- </form> -->
+
+                    <!-- </div> -->
+
+                    <!-- <h6 class="newCity">Popular Regions We Deliver</h6> -->
+                    
+
+                </div>
+
+                <!-- Rotating Image of Washing Image -->
+                <span class="spinner-box">
+
+                    <!-- <img src="img/spinner.png" alt="spin-image" class="spinner"> -->
+                     <img src="img/spinner.png" alt="spin-image" class="spinner"> 
+                </span>
+
+            </div>
+
+        </header>
+
+    </div>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <main class="container">
+
+        <!-- Section to tell about how creaseart application works -->
+        <section class="how_it_works">
+            <h3>HOW IT WORKS?</h3>
+            <h5>We have made laundry service easy and fast</h5>
+
+            <div class="how_it_works_section row">
+                <span class="how_it_works_section_box col-md">
+                    <img src="img/app-icon.png" alt="app-icon">
+                    <p>Find the best laundry service near you and order</p>
+                </span>
+                <span class="how_it_works_section_box col-md">
+                    <img src="img/delivery-guy.png" alt="delivery-guy">
+                    <p>We will pickup it from your door and deliver it at your door</p>
+                </span>
+                <span class="how_it_works_section_box col-md">
+                    <img src="img/delivery-guy.png" alt="delivery-guy">
+                    <p>We will pickup it from your door and deliver it at your door</p>
+                </span>
+            </div>
+        </section>
+
+        <!-- Section where there will be links to download creaseart application from app store and play store. -->
+        <section class="download_app row">
+            <div class="download_app_text col-md">
+                <h2>Laundry Just One Step Away</h2>
+                <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, id!</h6>
+                <span class="download_app_link">
+                    <a href="https://www.apple.com/app-store/" target="_blank">  <img src="img/apple-ios-badge.png" alt="apple-ios-badge"></a>
+                   <!-- Link for ios app store. -->
+                   <a href="https://play.google.com/store/search?q=dream11+app&c=apps" target="_blank"><img src="img/google-play-badge.png" alt="google-play-badge"></a>
+                     <!-- Link for google play store. -->
+                </span>
+            </div>
+            <!-- <div class="download_app_screenshots col-md">
+                <img src="img/image.png" alt="app-screenshot"> Screenshots of Quick-Clean app. -->
+                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.2636373655178!2d81.76757767538943!3d25.429448077562125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399acda4892cc187%3A0xb07e2e87ab51e82a!2sIndian%20Institute%20of%20Information%20Technology%2C%20Allahabad!5e0!3m2!1sen!2sin!4v1710365744644!5m2!1sen!2sin" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            </div>
+        </section>
+
+    </main>
+
+    
+                <div class="col-md">
+                   
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <!-- Particle JS script -->
+    <script>
+        particlesJS.load('particles-js', 'particles.json');
+    </script>
+
+</body>
+
+</html>

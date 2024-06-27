@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Logo4.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/vendor-list.css">
+
+    <title>Vendor Details</title>
+</head>
+
+<body>
+
+    <!-- Navigation header starts-->
+    <header class="vendor_list_nav">
+
+        <div class="vendor_list_nav_one">
+            <a href="index.html"><img src="img/Logo4.png" alt="logo" class="logo"></a>
+            <!-- Search address -->
+            <form>
+                <input type="text" class="address_search" name="search" placeholder="Address..">
+            </form>
+        </div>
+
+        <!-- Menu starts -->
+        <div id="myNav" class="vendor_list_nav_two vendor_overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <!-- Cross icon which will appear when login/sign up form appears from side bar -->
+            <div class="vendor_content">
+                <!-- Search within web page -->
+                <form>
+                    <input type="text" name="search" placeholder="Search..">
+                </form>
+
+                <span><a href="#"><i class="fa fa-percent"></i> Offers</a></span>
+                <!-- Link to discounts offered by various vendors -->
+                <span><a href="About_Us.html"><i class="fa fa-question-circle"></i> Help</a></span>
+                <!-- Help link related to the website -->
+                <span><a href="#login" class="btn btn-white" onclick="window.location.href='../../creaseart_website-master/Login.html'">Logout</a></span>
+               
+            </div>
+        </div>
+        <span class="ham-icon" onclick="openNav()">&#9776;</span>
+        <!-- Hamburger icon which will appear in place of menu in mobile view -->
+
+        <!-- Login Form Starts -->
+        <div id="login" class="overlay">
+
+            <a href="javascript:void(0)" class="closebtn" onclick="closeLogform()">&times;</a>
+
+            <div class="overlay-content">
+
+                <h4>Login</h4>
+
+                <div class="login-content">
+                    <form action="" class="form">
+
+                        <div class="input-div one">
+                            <div class="div">
+                                <h5>Phone No.*</h5>
+                                <input type="tel" class="input" autocomplete="tel" name="phone"
+                                    pattern="{+91}-[0-9]{5}-[0-9]{5}" min="10" max="13" required>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btn" value="Log In">
+                        <p>or <span><a href="#signup" onclick="openSignform()">create an account</a></span></p>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Login Forms ends -->
+
+        <!-- Sign Up form starts -->
+        <div id="signup" class="overlay">
+
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSignform()">&times;</a>
+
+            <div class="overlay-content">
+
+                <h4>Sign Up</h4>
+
+                <div class="login-content">
+                    <form action="" class="form">
+
+                        <div class="input-div one">
+                            <div class="div">
+                                <h5>Phone No.*</h5>
+                                <input type="tel" class="input" autocomplete="tel" name="phone"
+                                    pattern="{+91}-[0-9]{5}-[0-9]{5}" min="10" max="13" required>
+                            </div>
+                        </div>
+
+                        <div class="input-div one">
+                            <div class="div">
+                                <h5>Name*</h5>
+                                <input type="text" class="input" autocomplete="name" required>
+                            </div>
+                        </div>
+
+                        <div class="input-div one">
+                            <div class="div">
+                                <h5>Email*</h5>
+                                <input type="email" class="input" autocomplete="email" required>
+                            </div>
+                        </div>
+
+                        <div class="input-div pass">
+                            <div class="div">
+                                <h5>Password*</h5>
+                                <input type="password" class="input signUppassword-input" required>
+                            </div>
+                        </div>
+
+                        <div class="input-div confirm_pass">
+                            <div class="div">
+                                <h5>Confirm Password*</h5>
+                                <input type="password" class="input confirm_password-input" required>
+                            </div>
+                        </div>
+
+                        <p class="error-message"></p>
+
+                        <input type="submit" class="btn" value="Sign Up">
+                        <p>or <span><a href="#login" onclick="openLogform()">login to your account</a></span></p>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Sign Up form ends -->
+        <!-- Menu ends -->
+        <!-- Navigation header ends-->
+    </header>
+
+    <!-- Vendor Details and cart -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white mg-t-30">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Allahabad</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Let's Laundry</li>
+        </ol>
+    </nav>
+
+    <main class="vendor_detail">
+        <!-- Photo and details of the selected vendor -->
+        <section class="vendor_detail_banner">
+            <img src="img/Lets.jpg" style="border-radius: 50px;"
+                alt="Let's Laundry" class="company_logo">
+            <div class="vendor_detail_summary">
+                <h4>Let's Laundry</h4>
+                <p>Sec. 23 Civil-Lines, Allahabad, UP</p>
+                <div>
+                    <span class="vendor_rating"><i class="fa fa-star"></i> 4.5 <p>100+ Ratings</p> </span>
+                    <!-- <span>|</span> -->
+                    <span class="vendor_delivery">2 Day <p>Delivery Time</p> </span>
+                    <!-- <span>|</span> -->
+                    <span class="vendor_distance">1.5 Km <p>Distance</p> </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail_service_cart container">
+
+            <div class="service_tabs">
+                <h6>Select Services</h6>
+
+
+                <section class="services_form container">
+                    <h6>Services Form</h6>
+                    <form id="servicesForm">
+                        <div class="row">
+                            <!-- Left Column -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" id="servicesDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="time" class="form-control" id="servicesTime" required>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="gender" required>
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="address" placeholder="Address" rows="3" required></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="state" placeholder="State" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="city" placeholder="City" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="paymentMethod" required>
+                                        <option value="" disabled selected>Select Payment Method</option>
+                                        <option value="upi">UPI</option>
+                                        <option value="netBanking">Net Banking</option>
+                                        <option value="card">Card</option>
+                                        <option value="cashOnDelivery">Cash on Delivery</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Right Column -->
+                            <div class="col-md-6">
+                                <!-- <div class="form-group">
+                                    <label for="additionalServices">Additional Services:</label>
+                                    <select multiple class="form-control" id="additionalServices">
+                                        <option>Antiseptic</option>
+                                        <option>Emulsifier</option>
+                                        <option>Neutraliser</option>
+                                        <option>Softner</option>
+                                    </select>
+                                </div> -->
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="summerClothes" placeholder="No. of Upper-Wear" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="winterClothes" placeholder="No. of Lower-Wear" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="normalClothes" placeholder="No. of Bed-Sheets" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="additionalServices">Additional Services:</label>
+                                    <select class="form-control" id="additionalServices" required>
+                                        <option value="" disabled selected>Select Additional Services</option>
+                                        <option value="antiseptic">Antiseptic</option>
+                                        <option value="emulsifier">Emulsifier</option>
+                                        <option value="neutraliser">Neutraliser</option>
+                                        <option value="softner">Softner</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="totalAmount" placeholder="Total Amount" readonly>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-dark-red">Submit</button>
+                        <!-- <p id="dis">Appointment booked successfully!</p> -->
+                    </form>
+                </section>
+                
+                
+                <style>.services_form {
+                    margin-top: 30px;
+                }
+                
+                .services_form form {
+                    max-width: 100%;
+                    margin: auto;
+                }
+                
+                .services_form h6 {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
+                
+                .services_form .form-group {
+                    margin-bottom: 15px;
+                }
+                
+                .services_form button[type="submit"] {
+                    width: 100%;
+                    background-color: darkred;
+                    color: white;
+                }
+                
+                .services_form input[type="number"] {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    margin-bottom: 15px;
+                }
+                
+                .services_form input[type="number"]:focus {
+                    outline: none;
+                    border-color: darkred;
+                    box-shadow: 0 0 5px rgba(220, 20, 60, 0.5);
+                }
+                
+
+                </style>
+                
+            <!-- Cart section -->
+            
+        </section>
+
+        <section class="add-on_services container">
+            <h6>Add-on Services</h6>
+            <div class="add-services">
+                <span>
+                    <img src="img/Antiseptic@3x.png" alt="antiseptic">
+                    <p>Antiseptic</p>
+                    <p> Free</p>
+                    <!-- <button type="button" value="+">ADD +</button> -->
+                </span>
+                <span>
+                    <img src="img/emulsifier_icon@3x.png" alt="emulsifier">
+                    <p>Emulsifier</p>
+                    <p> Free</p>
+                    <!-- <button type="button" value="+">ADD +</button> -->
+                </span>
+                <span>
+                    <img src="img/neutralizer_icon@3x.png" alt="neutraliser">
+                    <p>Neutraliser</p>
+                    <p> Free</p>
+                    <!-- <button type="button" value="+">ADD +</button> -->
+                </span>
+                <span>
+                    <img src="img/softner_icon@3x.png" alt="softner">
+                    <p>Softner</p>
+                    <p> Free</p>
+                    <!-- <button type="button" value="+">ADD +</button> -->
+                </span>
+            </div>
+        </section>
+    </main>
+<script>
+    // Function to calculate total amount
+// Function to calculate total amount
+function calculateTotalAmount() {
+    const upperWearPrice = 10; // Price for upper-wear
+    const lowerWearPrice = 15; // Price for lower-wear
+    const bedSheetPrice = 20; // Price for bed-sheet
+
+    // Get the quantities of upper-wear, lower-wear, and bed-sheets
+    let summerClothesQty = parseInt(document.getElementById('summerClothes').value);
+    let winterClothesQty = parseInt(document.getElementById('winterClothes').value);
+    let normalClothesQty = parseInt(document.getElementById('normalClothes').value);
+
+    // Check if any of the quantities is NaN (not a number) or empty, set it to zero
+    summerClothesQty = isNaN(summerClothesQty) ? 0 : summerClothesQty;
+    winterClothesQty = isNaN(winterClothesQty) ? 0 : winterClothesQty;
+    normalClothesQty = isNaN(normalClothesQty) ? 0 : normalClothesQty;
+
+    // Calculate total amount
+    const totalAmount = (summerClothesQty * upperWearPrice) + (winterClothesQty * lowerWearPrice) + (normalClothesQty * bedSheetPrice);
+
+    // Display total amount in the total amount field
+    document.getElementById('totalAmount').value = totalAmount;
+}
+
+// Event listener for input fields to recalculate total amount
+document.getElementById('summerClothes').addEventListener('input', calculateTotalAmount);
+document.getElementById('winterClothes').addEventListener('input', calculateTotalAmount);
+document.getElementById('normalClothes').addEventListener('input', calculateTotalAmount);
+
+
+// Event listener for input fields to recalculate total amount
+document.getElementById('summerClothes').addEventListener('input', calculateTotalAmount);
+document.getElementById('winterClothes').addEventListener('input', calculateTotalAmount);
+document.getElementById('normalClothes').addEventListener('input', calculateTotalAmount);
+
+</script>
+    <footer>
+        <div class="container">
+            <div class="footer_social_bar row">
+                <a href="index.html" class="col-lg-10"><img src="img/Logo4.png" alt="logo" class="logo"></a>
+
+                <!-- Creaseart's social media links -->
+                <span class="footer_social_links col-lg-2">
+                    <a href="" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
+                </span>
+            </div>
+            <div class="footer_sections row">
+                <div class="col-md">
+                    <h6>About <b style="color: red;">Quick-Clean</b></h6>
+                    <p>Quick-Clean Application is an innovative and beneficial app designed by our company in an effort to
+                        modernise the laundry & dry-cleaning industry. It also offers the consumers to identify the
+                        right vendor for their cleaning needs.</p>
+                </div>
+                <div class="col-md">
+                    <h6>Important Links</h6>
+                    <p><a href="About_Us.html">About Us</a></p>
+                    <p><a href="#">Help & Support</a></p>
+                    <p><a href="#">Offers</a></p>
+                    <p><a href="#">Become a Partner</a></p>
+                </div>
+                <div class="col-md">
+                    <!-- <h6>Contact Us</h6>
+                    <p><i class="fa fa-map-marker"></i> <a
+                            href="https://www.google.com/maps/search/512,+5th+Floor,+Tower+A,+Spaze+I+Tech+Park,+Sohna+Road,+Sector+49,+122018+Gurugram,+Haryana/@28.4132101,77.0409667,17z/data=!3m1!4b1" target="_blank">512,
+                            5th Floor, Tower A, Spaze I Tech Park, Sohna Road, Sector 49, 122018 Gurugram, Haryana</a>
+                    </p>
+                    <p><i class="fa fa-phone"></i> <a href="tel:+918102020271"> +91 81020 20271</a></p>
+                    <p><i class="fa fa-envelope"></i> <a href="mailto:info@creaseart.com"> info@creaseart.com</a></p> -->
+                    <span class="download_app_link">
+                        <img src="img/apple-ios-badge.png" alt="apple-ios-badge"> <!-- Link for ios app store. -->
+                        <img src="img/google-play-badge.png" alt="google-play-badge">
+                        <!-- Link for google play store. -->
+                    </span>
+                </div>
+            </div>
+
+            <div class="footer_sections_extra">
+                <span><a href="#">Privacy</a></span>
+                <span><a href="#">Terms</a></span>
+                <span><a href="#">Blog</a></span>
+                <span><a href="#">Sitemap</a></span>
+            </div>
+
+            <p class="disclaimer">By continuing past this page, you agree to our Terms of Service, Cookie Policy,
+                Privacy Policy and Content Policies. All trademarks are properties of their respective owners. ©
+                2008-2024  Quick-Clean Pvt Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/vendorDetails.js"></script>
+
+    <script>// Initialize Firebase
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Initialize Firebase
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA7cULxf6R4jmJfACFIdweioyIS1M8y6jw",
+  authDomain: "quick-clean-d6697.firebaseapp.com",
+  databaseURL: "https://quick-clean-d6697-default-rtdb.firebaseio.com",
+  projectId: "quick-clean-d6697",
+  storageBucket: "quick-clean-d6697.appspot.com",
+  messagingSenderId: "782590391296",
+  appId: "1:782590391296:web:78df13fe3355ae53a954e5",
+  measurementId: "G-JNXG2WPH10"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Event listener for form submission
+document.getElementById('servicesForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get form values
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const servicesDate = document.getElementById('servicesDate').value;
+    const servicesTime = document.getElementById('servicesTime').value;
+    const gender = document.getElementById('gender').value;
+    const address = document.getElementById('address').value;
+    const state = document.getElementById('state').value;
+    const city = document.getElementById('city').value;
+    const paymentMethod = document.getElementById('paymentMethod').value;
+    const summerClothes = document.getElementById('summerClothes').value;
+    const winterClothes = document.getElementById('winterClothes').value;
+    const normalClothes = document.getElementById('normalClothes').value;
+    const additionalServices = document.getElementById('additionalServices').value;
+    const totalAmount = document.getElementById('totalAmount').value; // Get the total amount directly
+
+    // Push data to Firebase
+    firebase.database().ref('Services').push({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        servicesDate: servicesDate,
+        servicesTime: servicesTime,
+        gender: gender,
+        address: address,
+        state: state,
+        city: city,
+        paymentMethod: paymentMethod,
+        summerClothes: summerClothes,
+        winterClothes: winterClothes,
+        normalClothes: normalClothes,
+        additionalServices: additionalServices,
+        totalAmount: totalAmount // Include total amount in the data pushed to Firebase
+    }).then(function() {
+        // Reset form after successful submission
+        document.getElementById('servicesForm').reset();
+        alert("Form submitted successfully!");
+    }).catch(function(error) {
+        // Handle errors
+        console.error("Error submitting form: ", error);
+        alert("Error submitting form. Please try again later.");
+    });
+});
+
+        
+        </script>
+
+</body>
+
+</html>
