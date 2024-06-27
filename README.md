@@ -24,7 +24,7 @@ If you are new to any place and need laundry services, this application is incre
    git clone https://github.com/yourusername/laundry-management-system.git
 
    ## 📷 Screenshots
-![Home Screen](./images/home-page.png)
-![Order Management](./images/item-page.png)
-![User Screen](./images/user-page.png)
-![Vendor Screen](./images/vendor-page.png)
+![Home Screen](./image/home-page.png)
+![Order Management](./image/item-page.png)
+![User Screen](./image/user-page.png)
+![Vendor Screen](./image/vendor-page.png)
